@@ -5,11 +5,11 @@ stages:
     deps:
     - path: stage_01.py
       hash: md5
-      md5: d06038cab61eb16b371523374890dbb1
-      size: 96
+      md5: 5ecf89a03d0501eb2b7574979efc8b7f
+      size: 100
       isexec: true
     outs:
-    - path: artifacts.txt
+    - path: artifacts_01.txt
       hash: md5
       md5: 0702ff247010997720abd5977d92d3f4
       size: 14
@@ -17,13 +17,32 @@ stages:
   stage_02:
     cmd: python stage_02.py
     deps:
-    - path: artifacts.txt
+    - path: artifacts_01.txt
       hash: md5
       md5: 0702ff247010997720abd5977d92d3f4
       size: 14
       isexec: true
-    - path: stage_01.py
+    - path: stage_02.py
       hash: md5
-      md5: d06038cab61eb16b371523374890dbb1
-      size: 96
+      md5: aa63077d745c390503498b101ba6f981
+      size: 83
+      isexec: true
+  stage_03:
+    cmd: python stage_03.py
+    deps:
+    - path: artifacts_01.txt
+      hash: md5
+      md5: 0702ff247010997720abd5977d92d3f4
+      size: 14
+      isexec: true
+    - path: stage_03.py
+      hash: md5
+      md5: 4cd7f793b4fbc50884bf62c4fb67860e
+      size: 195
+      isexec: true
+    outs:
+    - path: artifacts_02.txt
+      hash: md5
+      md5: 91ad38003f19394d27e725d6efb0be34
+      size: 25
       isexec: true
